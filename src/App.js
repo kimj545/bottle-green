@@ -2,19 +2,21 @@
 // import react, firebase, and react router
 import React, { Component } from 'react';
 import {firebase, firestore} from "./utils/firebase";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
+// import container
+import Login from './containers/logIn';
+import SignUp from './containers/signUp';
+import Home from './containers/home';
+import History from './containers/history';
+import About from './containers/about';
+import UserHome from './containers/userHome';
+import UserProfile from './containers/userProfile';
 
 // import components
-import Login from './components/logIn';
-import SignUp from './components/signUp';
-import Home from './components/home';
-import History from './components/history';
-import About from './components/about';
-import UserHome from './components/userHome';
-
-// import container(s)
-import NavBar from "./containers/navBar";
-import NavBarSignedIn from "./containers/navBarSignedIn";
+import NavBar from "./components/navBar";
+import NavBarSignedIn from "./components/navBarSignedIn";
+import Footer from "./components/footers";
 
 // import css
 import './App.css';
@@ -22,30 +24,31 @@ import './App.css';
 const DEFAULTSTATE = {
   user: undefined,
   errorMsg: undefined,
-  personalInfo: {
-    email: "",
-    firstName: "",
-    lastName: "",
-    phone: "",
-    address: "",
-    city: "",
-    zip: "",
-  }
+  personalInfo: [
+    {email: ""},
+    {firstName: ""},
+    {lastName: ""},
+    {phone: ""},
+    {address: ""},
+    {city: ""},
+    {zip: ""},
+  ]
 }
 
 
 class App extends Component {
   constructor(props) {
-
     super(props);
 
     this.state = {
       DEFAULTSTATE
     }
 
+    // bind all the functions
     this.getDoc = this.getDoc.bind(this);
     this.trySignOut = this.trySignOut.bind(this);
 
+    // firebase check if user signed in
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({user});
@@ -55,6 +58,7 @@ class App extends Component {
     });
   }
 
+  // firebase add user info to data if first time signed in
   getDoc() { 
     firestore.collection("users").doc(this.state.user.uid).get()
       .then(doc => {
@@ -85,9 +89,16 @@ class App extends Component {
     });
   }
 
+  // redirect to Home Page (NOT WORKING AS OF NOW)
+  redirectToHome() {
+    return <Redirect to="/" />
+  }
+
+  // sign out the user
   trySignOut() {
     firebase.auth().signOut().then(() => {
       console.log('Signed Out');
+      this.redirectToHome();
       this.setState({user: undefined});
     }, function(error) {
       console.error('Sign Out Error', error);
@@ -100,12 +111,15 @@ class App extends Component {
         <Router>
           <div>
             <NavBar />
-              <div> 
+
+              <div>
                 <Route exact path = "/login" render={() => <Login loggedIn = {(user) => {this.setState({user})}} />}/>
                 <Route exact path = "/signup" render={() => <SignUp num="2" signedUp = {(personalInfo) => {this.setState({personalInfo})}}/>}  />
                 <Route exact path = "/about" component = {About} />
                 <Route exact path = "/" component = {Home} />
               </div>
+
+              <Footer />
               
           </div>
         </Router>
@@ -123,7 +137,10 @@ class App extends Component {
               <Route exact path = "/history" component = {History}/>
               <Route exact path = "/about" component = {About} />
               <Route exact path = "/" component = {UserHome} />
+              <Route exact path = "/profile" render={() => <UserProfile personalInfo={this.state.personalInfo}/>} />
             </div>
+
+            <Footer />
           </div>
         </Router>
         
