@@ -12,6 +12,7 @@ import History from './containers/history';
 import About from './containers/about';
 import UserHome from './containers/userHome';
 import UserProfile from './containers/userProfile';
+import AboutUs from './containers/aboutUs';
 
 // import components
 import NavBar from "./components/navBar";
@@ -24,15 +25,15 @@ import './App.css';
 const DEFAULTSTATE = {
   user: undefined,
   errorMsg: undefined,
-  personalInfo: [
-    {email: ""},
-    {firstName: ""},
-    {lastName: ""},
-    {phone: ""},
-    {address: ""},
-    {city: ""},
-    {zip: ""},
-  ]
+  personalInfo: {
+    email: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    address: "",
+    city: "",
+    zip: ""
+  }
 }
 
 
@@ -41,18 +42,31 @@ class App extends Component {
     super(props);
 
     this.state = {
-      DEFAULTSTATE
+      user: undefined,
+      errorMsg: undefined,
+      personalInfo: {
+        email: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        address: "",
+        city: "",
+        zip: ""
+      }
     }
 
     // bind all the functions
     this.getDoc = this.getDoc.bind(this);
     this.trySignOut = this.trySignOut.bind(this);
+    this.userProfilePageRedirect = this.userProfilePageRedirect.bind(this);
+    
 
     // firebase check if user signed in
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({user});
         this.getDoc();
+        
       }
 
     });
@@ -81,8 +95,11 @@ class App extends Component {
                   console.error("Error writing document: ", error);
               });
           } else {
+              
               console.log('Document data:', doc.data());
           }
+
+          this.setState({personalInfo: doc.data()});
       })
       .catch(err => {
           console.log('Error getting document', err);
@@ -92,6 +109,18 @@ class App extends Component {
   // redirect to Home Page (NOT WORKING AS OF NOW)
   redirectToHome() {
     return <Redirect to="/" />
+  }
+
+  userProfilePageRedirect() {
+    return <UserProfile 
+      email={this.state.personalInfo.email}
+      firstName={this.state.personalInfo.firstName}
+      lastName={this.state.personalInfo.lastName}
+      phone={this.state.personalInfo.phone}
+      address={this.state.personalInfo.address}
+      city={this.state.personalInfo.city}
+      zip={this.state.personalInfo.zip}
+    />
   }
 
   // sign out the user
@@ -113,10 +142,15 @@ class App extends Component {
             <NavBar />
 
               <div>
-                <Route exact path = "/login" render={() => <Login loggedIn = {(user) => {this.setState({user})}} />}/>
+                <Route exact path = "/login" render={() => <Login loggedIn = {(user) => {
+                  this.setState({user});
+                  this.redirectToHome;
+                }} />}/>
                 <Route exact path = "/signup" render={() => <SignUp num="2" signedUp = {(personalInfo) => {this.setState({personalInfo})}}/>}  />
                 <Route exact path = "/about" component = {About} />
                 <Route exact path = "/" component = {Home} />
+                <Route exact path = "/" component = {SignUp} />
+                <Route exact path = "/aboutUs" component = {AboutUs} />
               </div>
 
               <Footer />
@@ -136,8 +170,9 @@ class App extends Component {
             <div>
               <Route exact path = "/history" component = {History}/>
               <Route exact path = "/about" component = {About} />
-              <Route exact path = "/" component = {UserHome} />
-              <Route exact path = "/profile" render={() => <UserProfile personalInfo={this.state.personalInfo}/>} />
+              <Route exact path = "/" render={() => <UserHome userUid={this.state.user.uid}/>} />
+              <Route exact path = "/profile" render={this.userProfilePageRedirect} />
+              <Route exact path = "/aboutus" component = {AboutUs} />
             </div>
 
             <Footer />
