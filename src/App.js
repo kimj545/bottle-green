@@ -113,7 +113,7 @@ class App extends Component {
 
   userProfilePageRedirect() {
     return <UserProfile 
-      userUid={this.state.userUid}
+      userUid={this.state.user.uid}
       email={this.state.personalInfo.email}
       firstName={this.state.personalInfo.firstName}
       lastName={this.state.personalInfo.lastName}

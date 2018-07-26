@@ -3,7 +3,7 @@ import {firebase, firestore} from '../utils/firebase';
 
 export default class UserProfile extends Component {
     constructor(props) {
-        super();
+        super(props);
 
 
         this.state = {
@@ -20,15 +20,31 @@ export default class UserProfile extends Component {
             personalInfo: []
         }
         console.log(this.props)
+
+        this.handleChangeEvent = this.handleChangeEvent.bind(this);
     }
 
     componentWillReceiveProps({props}) {
         this.setState({...this.state,props})
     }
 
+    handleChangeEvent(event) {    
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+
     tryUpdateInfo() {
-        firestore.collection("users").doc(this.state.props.userUid).set({
-            
+        console.log(this.props.userUid);
+        let a = (this.props.userUid).toString()
+
+        firestore.collection("users").doc(a).set({
+            email: this.state.email,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            phone: this.state.phone,
+            address: this.state.address,
+            city: this.state.city,
+            zip: this.state.zip,
         }, {merge: true})
         .then(function() {
             console.log("Document successfully written!");
