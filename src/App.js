@@ -113,6 +113,7 @@ class App extends Component {
 
   userProfilePageRedirect() {
     return <UserProfile 
+      userUid={this.state.userUid}
       email={this.state.personalInfo.email}
       firstName={this.state.personalInfo.firstName}
       lastName={this.state.personalInfo.lastName}
@@ -150,7 +151,7 @@ class App extends Component {
                 <Route exact path = "/about" component = {About} />
                 <Route exact path = "/" component = {Home} />
                 <Route exact path = "/" component = {SignUp} />
-                <Route exact path = "/aboutUs" component = {AboutUs} />
+                <Route exact path = "/aboutus" component = {AboutUs} />
               </div>
 
               <Footer />

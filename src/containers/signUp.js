@@ -56,29 +56,45 @@ export default class SignUp extends Component {
                 }
                 this.props.signedUp(personalInfo);
                 }}>
-                    <label>Email</label>
-                    <input type = "text" name="email" value={this.state.email} onChange={this.handleChangeEvent}/>
+                    <div>
+                        <label>Email</label>
+                        <input type = "text" name="email" value={this.state.email} onChange={this.handleChangeEvent}/>
+                    </div>
 
-                    <label>Password</label>
-                    <input type = "password" name="password" value = {this.state.password} onChange = {this.handleChangeEvent}/>
+                    <div>
+                        <label>Password</label>
+                        <input type = "password" name="password" value = {this.state.password} onChange = {this.handleChangeEvent}/>
+                    </div>
 
-                    <label>First Name</label>
-                    <input type = "text" name="firstName" value={this.state.firstName} onChange={this.handleChangeEvent}/>
+                    <div>
+                        <label>First Name</label>
+                        <input type = "text" name="firstName" value={this.state.firstName} onChange={this.handleChangeEvent}/>
+                    </div>
 
-                    <label>Last Name</label>
-                    <input type = "text" name="lastName" value={this.state.lastName} onChange={this.handleChangeEvent}/>
+                    <div>
+                        <label>Last Name</label>
+                        <input type = "text" name="lastName" value={this.state.lastName} onChange={this.handleChangeEvent}/>
+                    </div>
 
-                    <label>Phone number</label>
-                    <input type = "text" name="phone" value={this.state.phone} onChange={this.handleChangeEvent}/>
+                    <div>
+                        <label>Phone number</label>
+                        <input type = "text" name="phone" value={this.state.phone} onChange={this.handleChangeEvent}/>
+                    </div>
 
-                    <label>Home Address</label>
-                    <input type = "text" name="address" value={this.state.address} onChange={this.handleChangeEvent}/>
+                    <div>
+                        <label>Home Address</label>
+                        <input type = "text" name="address" value={this.state.address} onChange={this.handleChangeEvent}/>
+                    </div>
 
-                    <label>City</label>
-                    <input type = "text" name="city" value={this.state.city} onChange={this.handleChangeEvent}/>
-
-                    <label>Zip Code</label>
-                    <input type = "text" name="zip" value={this.state.zip} onChange={this.handleChangeEvent}/>
+                    <div>
+                        <label>City</label>
+                        <input type = "text" name="city" value={this.state.city} onChange={this.handleChangeEvent}/>
+                    </div>
+                    
+                    <div>
+                        <label>Zip Code</label>
+                        <input type = "text" name="zip" value={this.state.zip} onChange={this.handleChangeEvent}/>
+                    </div>
 
                     <button> Sign up </button>
                 </form>
