@@ -32,26 +32,32 @@ export default class UserProfile extends Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
-
     tryUpdateInfo() {
         console.log(this.props.userUid);
         let a = (this.props.userUid).toString()
+        let doc = firestore.collection("users").doc(a);
 
-        firestore.collection("users").doc(a).set({
-            email: this.state.email,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            phone: this.state.phone,
-            address: this.state.address,
-            city: this.state.city,
-            zip: this.state.zip,
-        }, {merge: true})
-        .then(function() {
-            console.log("Document successfully written!");
-        })
-        .catch(function(error) {
-            console.error("Error writing document: ", error);
-        });
+        if (this.state.email != "") {
+            doc.update({email: this.state.email})
+        }
+        if (this.state.firstName != "") {
+            doc.update({firstName: this.state.firstName})
+        }
+        if (this.state.lastName != "") {
+            doc.update({lastName: this.state.lastName})
+        }
+        if (this.state.phone != "") {
+            doc.update({phone: this.state.phone})
+        }
+        if (this.state.address != "") {
+            doc.update({address: this.state.address})
+        }
+        if (this.state.city != "") {
+            doc.update({city: this.state.city})
+        }
+        if (this.state.zip != "") {
+            doc.update({zip: this.state.zip})
+        }
     }
 
     render() {
