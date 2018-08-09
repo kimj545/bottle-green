@@ -28,13 +28,25 @@ export default class SignUp extends Component {
     }
 
     trySignup() {
+
+        if (this.state.firstName == "" || this.state.lastName == "" || this.state.address == "" || this.state.zip == "") {
+            this.setState({errMsg: "please fill out all the fields"});
+            return;
+        } else if (this.state.firstName != (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)    ) {
+            this.setState({errMsg: "the phone number if invalid"});
+            return;
+        } else if (this.state.city != "irvine" || this.state.city != "Irvine") {
+            this.setState({errMsg: "As of Right Now, we only allow cities from Irvine. Please input 'Irvine' for the city field"});
+            return;
+        }  
+        
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .catch((error) => {
           var errorCode = error.code;
           var errorMessage = error.message;
     
           this.setState({
-            loginError: errorMessage
+            errMsg: errorMessage
           })
         });
     }
@@ -93,6 +105,11 @@ export default class SignUp extends Component {
                     
                     <div>
                         <label>Zip Code</label>
+                        <input type = "text" name="zip" value={this.state.zip} onChange={this.handleChangeEvent}/>
+                    </div>
+
+                    <div>
+                        <label>Number of </label>
                         <input type = "text" name="zip" value={this.state.zip} onChange={this.handleChangeEvent}/>
                     </div>
 

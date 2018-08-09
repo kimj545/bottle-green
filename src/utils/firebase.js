@@ -7,16 +7,18 @@ var config = {
     authDomain: "bottle-green-86d30.firebaseapp.com",
     databaseURL: "https://bottle-green-86d30.firebaseio.com",
     projectId: "bottle-green-86d30",
-    storageBucket: "",
+    storageBucket: "bottle-green-86d30.appspot.com",
     messagingSenderId: "1032627040748"
 };
 
 firebase.initializeApp(config);
 
 const firestore = firebase.firestore();
+const storage = firebase.storage();
+
 
 firestore.settings({
     timestampsInSnapshots: true
 })
 
-export {firebase, firestore};
+export {firebase, firestore, storage};

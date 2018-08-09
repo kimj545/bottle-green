@@ -21,8 +21,6 @@ export default class UserHome extends Component {
 
         let temp = [];
 
-        
-
         firestore.collection("pickUpBottles").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 doc.data().users.forEach((a) => {
@@ -55,6 +53,22 @@ export default class UserHome extends Component {
     }
 
     componentDidMount() {
+        let d = new Date();
+        let dates = [];
+
+        firestore.collection("pickUpBottles").get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                if (!doc.completed) {
+                    if (doc.data().time )
+                    d = doc.data().time.toDate();
+                    let day = (d.getFullYear()) + "" + ('0' + (d.getMonth() + 1)).slice(-2) + "" + ('0' + d.getDate()).slice(-2);
+                    dates.push(day);
+                }
+            });
+
+            console.log(dates);
+        });
+
         this.sortDocument("pickUpBottles");
     }
 
