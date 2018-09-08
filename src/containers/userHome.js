@@ -17,6 +17,37 @@ export default class UserHome extends Component {
         this.tryPutData = this.tryPutData.bind(this);
     }
 
+    tryDeleteData() {
+        let temp = [];
+
+        firestore.collection("pickUpBottles").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                doc.data().users.forEach((a) => {
+                    
+
+                    if (!(this.state.userUid == a)) {
+                        temp.push(a);
+                        
+                    }
+                });
+            });
+        });
+
+        console.log(temp);
+        let a = (this.state.dates[this.state.index]).toString();
+
+        firestore.collection("pickUpBottles").doc(a).set({
+            users: temp
+        }, {merge: true})
+        .then(function() {
+            console.log("Document successfully written!");
+            alert("you are now not signed up for this date");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+    }
+
     tryPutData() {
 
         let temp = [];
@@ -46,6 +77,7 @@ export default class UserHome extends Component {
         }, {merge: true})
         .then(function() {
             console.log("Document successfully written!");
+            alert("you are now signed up for this date");
         })
         .catch(function(error) {
             console.error("Error writing document: ", error);
@@ -121,6 +153,8 @@ export default class UserHome extends Component {
                         }}>Date After</button>
 
                         <button onClick={ () => {this.tryPutData()}}>Sign up for this Date</button>
+
+                        <button onClick={ () => {this.tryDeleteData()}}>Cancel Sign up for this Date</button>
                     </div>
                 </div>
             )

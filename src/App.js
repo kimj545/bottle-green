@@ -166,7 +166,7 @@ class App extends Component {
         <Router>
           <div>
             <NavBarSignedIn trySignOut = {this.trySignOut} />
-            logged in
+            Welcome {this.state.personalInfo.firstName}
 
             <div>
               <Route exact path = "/history" component = {History}/>

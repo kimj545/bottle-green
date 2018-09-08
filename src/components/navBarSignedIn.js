@@ -25,9 +25,6 @@ const NavBarSignedIn = ( {trySignOut} ) => {
                             <a className="nav-link" href="/history">History</a>
                         </li>
                         
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="#">Disabled</a>
-                        </li>
                     </ul>
 
                     <div className="nav-item dropdown">
@@ -36,7 +33,6 @@ const NavBarSignedIn = ( {trySignOut} ) => {
                         </a>
                         <div className="dropdown-menu" id="bootstrap-overrides" aria-labelledby="navbarDropdown">
                             <a className="dropdown-item" href="/profile">My Profile</a>
-                            <a className="dropdown-item" href="#">Another action</a>
                             <div className="dropdown-divider"></div>
                             <a className="dropdown-item" onClick = {trySignOut}>sign out</a>
                         </div>
