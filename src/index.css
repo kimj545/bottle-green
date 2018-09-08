@@ -2,4 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
+  background: url('https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?cs=srgb&dl=bottles-container-daylight-802221.jpg&fm=jpg');
+  background-size: cover;
+  background-position: center bottom;
+  /* height: 130vh; */
+ }
+ 

@@ -1,0 +1,23 @@
+.logIn{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 17px;
+    justify-content: flex-center;
+    padding: 30px;
+    margin-left: 40%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+ 
+ }
+ 
+ input {
+    display: flex;
+    justify-content:
+  }
+  label {
+    float: left;
+    clear: both;
+    width: 100px;
+  }
+ 

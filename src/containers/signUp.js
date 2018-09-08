@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {firebase, firestore} from '../utils/firebase';
 import {Link} from 'react-router-dom';
+import './signUp.css'
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -53,7 +54,7 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <div >
+            <div className="sign-Up" >
                 <form onSubmit = {event => {
                 event.preventDefault();
                 this.trySignup();

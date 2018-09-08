@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {firebase} from '../utils/firebase';
 import {Link} from "react-router-dom";
+import './logIn.css';
 
 export default class Login extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div >
+            <div className="logIn" >
                 <form onSubmit = {event => {
                 event.preventDefault();
                 this.tryLogin();

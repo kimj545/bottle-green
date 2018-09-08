@@ -1,0 +1,51 @@
+body{
+    font-family:  ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif !important;
+    font-weight: 300;
+ }
+ 
+ .sign-Up{
+    display: flex;
+    flex-direction: column;
+    color:black;
+    font-size: 14px;
+    justify-content: flex-start;
+    padding: 35px;
+    margin-right: 15px;
+    margin-left: 70%;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    background: #0c5a0c;
+    border-radius: 8px;
+    border: 1px solid white;
+ }
+ 
+ button{
+    background: #b3ccff;
+    border-radius: 4px;
+    height: 45px;
+    width: 280px;
+    font-size: 17px;
+    font-weight: bolder;
+ }
+ 
+ input {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+ label {
+    float: left;
+    clear: both;
+    width: 100px;
+    font-weight: bold;
+  }
+ 
+  .Title{
+      margin-bottom: 30px;
+      border-bottom: 10px solid black;
+      font-weight: bold;
+      font-size: 30px;
+  }
+ 

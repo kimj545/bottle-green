@@ -1,8 +1,14 @@
 .footer {
-    position:absolute;
-    bottom:0;
     width:100%;
-    background: #babfc6;
+    background: #13133a;
     border-bottom: 4px;
     border-bottom-color: black;
-}
+ }
+ .footer > div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: white;
+    padding: 50px;
+ }
+ 
