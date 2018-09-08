@@ -65,7 +65,7 @@ export default class UserProfile extends Component {
         if (!this.state.atChangeProfile) {
             return (
                 <div>
-                    hi
+                    <h1>User Profile</h1>
                     <div>Email: {this.props.email}</div>
                     <div>First Name: {this.props.firstName}</div>
                     <div>Last Name: {this.props.lastName}</div>
@@ -80,6 +80,9 @@ export default class UserProfile extends Component {
         } else {
             return (
                 <div>
+
+                    <h1>User Profile Change</h1>
+
                     <form onSubmit = {event => {
                 event.preventDefault();
                 let personalInfo = {};
