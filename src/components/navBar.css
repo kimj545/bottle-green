@@ -1,0 +1,19 @@
+
+
+.navbar{
+    background: white;
+    position: fixed;
+    margin-left: 0px;
+    width: 100%;
+    min-width: 980 px;
+    height: 105px;
+    z-index: 50;
+    top: 0px;
+
+}
+
+.nav-link{
+    color: black;
+    display: flex;
+    font-size: 20px;
+}

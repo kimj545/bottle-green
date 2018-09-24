@@ -1,0 +1,38 @@
+.userHome{
+    margin-top: 180px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    top: 200px;
+    
+}
+
+.header{
+    margin-left: 35%;
+}
+
+.Next{
+    margin-left: 40%;
+    font-size: 30px;
+
+}
+
+.Dates{
+    margin-left: 44%;
+    font-size: 25px;
+}
+
+.but{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+
+
+}
+
+.but > button{
+    margin-left: 39%;
+    margin-top: 10px;
+
+}

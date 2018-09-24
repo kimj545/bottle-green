@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {storage} from '../utils/firebase';
+import './home.css';
+import SignUp from './signUp';
+
 
 const storageRef = storage.ref();
 
@@ -29,18 +32,17 @@ export default class Home extends Component {
     render() {
         if (this.state.isDownloaded) {
             return (
-                <div>
-                    <h1>Home page Quote</h1>
-                    <img src="url" alt="aww" width="42" height="42" />
-
+                <div className='frontPge'>
                 </div>
+
             )
         } else {
             return (
                 <div>
-                    <h1>Home page Quote</h1>
-                    <div>loading image</div>
+                <SignUp className="sUp"/>
+                <div className='frontPge'>
 
+                </div>
                 </div>
             )
         }

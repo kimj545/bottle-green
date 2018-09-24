@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {firestore, firebase} from '../utils/firebase';
+import './userHome.css';
+// import {} from '../components/calendar';
 
 export default class UserHome extends Component {
     constructor(props) {
@@ -132,19 +134,22 @@ export default class UserHome extends Component {
         }
         else {
             return (
-                <div>
-                    <h1>Get your Bottles Picked Up</h1>
-                    <div>Next Available Date:</div>
-                    <div>
-                        <div>{this.state.dates[this.state.index]}</div>
-                        <button onClick={() => {
+                <div className="userHome">
+                    <h1 className="header">Get your Bottles Picked Up</h1>
+                    <div className="Next">Next Available Date:</div>
+                    <div className="but">
+                        <div className="Dates">{this.state.dates[this.state.index]}</div>
+                        
+                        <button className="dBefore" onClick={() => {
                             if (0 != this.state.index) {
                                 let index = this.state.index;
                                 this.setState({index: index - 1});
                             }
                         }}>Date Before</button>
+
                         <span></span>
-                        <button onClick={() => {
+
+                        <button className="dAfter" onClick={() => {
                             if (this.state.dates.length-1 != this.state.index) {
                                 let index = this.state.index;
                                 this.setState({index: index + 1});
@@ -155,6 +160,8 @@ export default class UserHome extends Component {
                         <button onClick={ () => {this.tryPutData()}}>Sign up for this Date</button>
 
                         <button onClick={ () => {this.tryDeleteData()}}>Cancel Sign up for this Date</button>
+
+                        
                     </div>
                 </div>
             )

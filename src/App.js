@@ -139,22 +139,30 @@ class App extends Component {
     if (this.state.user == undefined) {
       return (
         <Router>
-          <div>
-            <NavBar />
 
-              <div>
+          <div className="frontApp">
+        
+            <NavBar />
+            <section className="topSection"> 
+            <div>
                 <Route exact path = "/login" render={() => <Login loggedIn = {(user) => {
                   this.setState({user});
                   this.redirectToHome;
                 }} />}/>
-                <Route exact path = "/signup" render={() => <SignUp num="2" signedUp = {(personalInfo) => {this.setState({personalInfo})}}/>}  />
+             
                 <Route exact path = "/about" component = {About} />
                 <Route exact path = "/" component = {Home} />
-                <Route exact path = "/" component = {SignUp} />
+               
                 <Route exact path = "/aboutus" component = {AboutUs} />
               </div>
+              </section>
 
-              <Footer />
+              <div className="footer"> 
+                <span> </span> <a href="mailto:BottleGreen930@gmail.com">BottleGreen930@gmail.com</a>
+                <div> 949-533-1196</div>
+                <div> Terms </div>
+                <div> Policy </div>
+              </div>
               
           </div>
         </Router>
@@ -166,7 +174,9 @@ class App extends Component {
         <Router>
           <div>
             <NavBarSignedIn trySignOut = {this.trySignOut} />
-            Welcome {this.state.personalInfo.firstName}
+            {this.state.personalInfo.firstName}
+
+       
 
             <div>
               <Route exact path = "/history" component = {History}/>
@@ -176,7 +186,14 @@ class App extends Component {
               <Route exact path = "/aboutus" component = {AboutUs} />
             </div>
 
-            <Footer />
+            <div className="footer"> 
+              <span></span> <a href="mailto:BottleGreen930@gmail.com">BottleGreen930@gmail.com</a>
+              <div>949-533-1196</div>
+              <div> Terms </div>
+              <div> Policy </div>
+              </div>
+
+           
           </div>
         </Router>
         

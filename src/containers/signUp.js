@@ -109,10 +109,6 @@ export default class SignUp extends Component {
                         <input type = "text" name="zip" value={this.state.zip} onChange={this.handleChangeEvent}/>
                     </div>
 
-                    <div>
-                        <label>Number of </label>
-                        <input type = "text" name="zip" value={this.state.zip} onChange={this.handleChangeEvent}/>
-                    </div>
 
                     <button> Sign up </button>
                 </form>

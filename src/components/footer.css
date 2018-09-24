@@ -1,8 +1,15 @@
-.footer {
-    width:100%;
+/* .footer {
     background: #13133a;
     border-bottom: 4px;
     border-bottom-color: black;
+    bottom: auto;
+    left: 0px;
+    margin-left: 0px;
+    width: 100%;
+    min-width: 980px;
+    position: absolute;
+  
+    height: 40x;
  }
  .footer > div{
     display: flex;
@@ -10,5 +17,26 @@
     flex-direction: row;
     color: white;
     padding: 50px;
+    margin-left: 80px;
  }
- 
+  */
+
+.footer{
+    bottom: auto;
+    left: 0px;
+    margin-left: 0px;
+    width: 100%;
+    min-width: 990px;
+    position: absolute;
+    top: 1300px;
+    height: 100px;
+    display: flex;
+}
+
+.footerContent > div {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+    
+
+}
