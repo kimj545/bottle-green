@@ -21,22 +21,3 @@
  }
   */
 
-.footer{
-    bottom: auto;
-    left: 0px;
-    margin-left: 0px;
-    width: 100%;
-    min-width: 990px;
-    position: absolute;
-    top: 1300px;
-    height: 100px;
-    display: flex;
-}
-
-.footerContent > div {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 20%;
-    
-
-}

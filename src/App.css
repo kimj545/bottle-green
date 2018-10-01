@@ -1,19 +1,27 @@
 body{
-  height: 2000px;
+
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+.frontApp{
+  margin: 0;
+  padding: 0;
 }
 
 
-
 .footer{
-  background: rgb(9, 69, 34);
+  background: #9fc753;
   position: absolute;
-  margin-top: 99%;
+  margin-top: 39%;
   display: flex;
-  padding: 20px;
-  padding-top: 40px;
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  color: black;
+  bottom: auto;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
 
 }
 
@@ -44,7 +52,12 @@ body{
   text-decoration: underline;
 }
 
+.firstName{
+  margin-top: 350px;
+}
+
 *{
-  font-family: Algerian;
+  font-family:  Helvetica, Arial, Sans-Serif;
+  margin: 0;
 }
 

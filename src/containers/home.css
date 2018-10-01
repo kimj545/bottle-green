@@ -4,22 +4,70 @@ body{
     height: 300px;
     margin-top: 300px;
     background-size: contain;    */
-  
+}
+
+.green{
+    background: #9fc753;
+   padding: 20px;
+   margin-top: 15px;
+   font-size: 3.5em;
+   color: white;
+ }
+ .green > span{
+   color: black;
+   font-size: 1.7em;
+   margin-left: 350px;
+ }
+ 
+ .items{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ .item{
+   display: flex;
+   padding: 10px;
+ }
+ 
+ div>:first-child{
+   justify-content: center;
+   align-items: center;
+ 
+ }
+ 
+ item > img{
+   width: 10px;
+   height: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 10px;
+
+   color: white;
+
+ }
+ 
+ div>:last-child{
+   padding: 10px;
+ }
+ 
+ p{
+   margin: 0;
+   padding: 0;
+   font-size: 3em;
+ }
+
+ .bar{
+    background: #9fc753;
+    width: 600px;
+    height: 10px;
+    margin: 0;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
     
-}
-
-.frontPge{
-    background:url('/static/imgs/climate.jpg');
-    background-size: cover;
-    margin-top: 100px;
-    height: 1900px;
-    margin: 150px;
-    margin-right: 20%;
-    margin-top: 5%;
-    margin-left: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: -12;
-}

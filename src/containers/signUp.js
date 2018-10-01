@@ -33,9 +33,6 @@ export default class SignUp extends Component {
         if (this.state.firstName == "" || this.state.lastName == "" || this.state.address == "" || this.state.zip == "") {
             this.setState({errMsg: "please fill out all the fields"});
             return;
-        } else if (this.state.firstName != (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)    ) {
-            this.setState({errMsg: "the phone number if invalid"});
-            return;
         } else if (this.state.city != "irvine" || this.state.city != "Irvine") {
             this.setState({errMsg: "As of Right Now, we only allow cities from Irvine. Please input 'Irvine' for the city field"});
             return;
@@ -55,6 +52,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <div className="sign-Up" >
+                <div className="form1">
                 <form onSubmit = {event => {
                 event.preventDefault();
                 this.trySignup();
@@ -116,6 +114,7 @@ export default class SignUp extends Component {
                 <div>{this.state.errMsg}</div>
 
                 <Link to="/login">Already have an account? Log In</Link>
+                </div>
             </div>
         )
     }
