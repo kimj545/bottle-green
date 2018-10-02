@@ -4,7 +4,7 @@ body{
   
  }
  .sign-Up{
-     background-image: url('https://images.pexels.com/photos/9343/city-sky-boardwalk-urban.jpg?cs=srgb&dl=can-coca-cola-litter-9343.jpg&fm=jpg');
+     background-image: url('/static/imgs/photo.jpg');
      background-size: cover;
      background-position: bottom center;
 
