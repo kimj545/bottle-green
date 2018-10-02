@@ -61,3 +61,11 @@ label {
   font-weight: bold;
 }
 
+.error{
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 300px;
+  margin-bottom: 13px;
+}
+
