@@ -52,7 +52,7 @@ export default class Login extends Component {
                         <input type="password" name="password" value={this.state.password} onChange={this.handleChangeEvent} />
                     </div>
                     <div className="logB">
-                        <div>{this.state.errMsg}</div>
+                        <div className="error">{this.state.errMsg}</div>
                         <button> Log In </button>
                     </div>
                 </form>

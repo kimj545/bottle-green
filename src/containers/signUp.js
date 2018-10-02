@@ -33,10 +33,7 @@ export default class SignUp extends Component {
         if (this.state.firstName == "" || this.state.lastName == "" || this.state.address == "" || this.state.zip == "") {
             this.setState({errMsg: "please fill out all the fields"});
             return;
-        } else if (this.state.city != "irvine" || this.state.city != "Irvine") {
-            this.setState({errMsg: "As of Right Now, we only allow cities from Irvine. Please input 'Irvine' for the city field"});
-            return;
-        }  
+        } 
         
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .catch((error) => {
@@ -65,7 +62,7 @@ export default class SignUp extends Component {
                     city: this.state.city,
                     zip: this.state.zip
                 }
-                this.props.signedUp(personalInfo);
+
                 }}>
                     <div>
                         <label>Email</label>
