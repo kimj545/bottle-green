@@ -36,8 +36,10 @@
 }
 
 .but{
+    display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
 
 
@@ -46,9 +48,10 @@
 }
 
 .but > button{
-    margin-left: 37%;
+    display: flex;
     margin-top: 10px;
     justify-content: center;
+    align-items: center;
     
     
 
