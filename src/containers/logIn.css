@@ -69,3 +69,7 @@ label {
   margin-bottom: 13px;
 }
 
+.topSection{
+  flex-grow: 1;
+}
+
