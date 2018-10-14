@@ -22,7 +22,7 @@ const AboutUs = () => {
                     <div className="Name"> Andrew Kim</div>
                     <div> Irvine High School, 11</div>
                     <div> Hobbies: Soccer, basketball, and reading </div>
-                    <div> Interesting Fact:</div>
+                    <div> Interesting Fact: I take naps every day</div>
                     <div></div>
                 </div>
             </div>

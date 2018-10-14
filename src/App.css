@@ -1,63 +1,63 @@
-body{
-
+body {
+  margin: 0;
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-.frontApp{
-  margin: 0;
-  padding: 0;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+.wrapper .main {
+  flex-grow: 1;
+}
 
-.footer{
+.frontApp {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
   background: #9fc753;
-  position: absolute;
-  margin-top: 39%;
   display: flex;
   font-size: 18px;
   font-weight: bold;
   color: black;
   bottom: auto;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-
-
+  padding: 30px;
 }
 
-.footer > div{
+.footer > div {
   display: flex;
   flex-direction: row;
   margin-left: 21%;
-
-
-
 }
 
-.text{
+.text {
   margin-top: 100px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items:  center;
+  align-items: center;
   font-size: 60px;
-
 }
-.text > div{
+.text > div {
   margin-top: 20px;
- 
 }
 
-.Welcome{
+.Welcome {
   text-decoration: underline;
 }
 
-.firstName{
+.firstName {
   margin-top: 350px;
 }
 
-*{
-  font-family:  Helvetica, Arial, Sans-Serif;
+* {
+  font-family: Helvetica, Arial, Sans-Serif;
   margin: 0;
 }
-

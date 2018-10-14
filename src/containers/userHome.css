@@ -10,6 +10,7 @@
 .header{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .Next{
@@ -17,18 +18,28 @@
     align-items: center;
     
     font-size: 30px;
+    justify-content: center;
 
 }
 
 .Dates{
     display: flex;
-    align-items: center;
     font-size: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+    margin-top: 10px;
+
+    font-weight: bold;
 }
 
 .but{
     align-items: center;
-    margin-bottom: 26px;
+    justify-content: center;
+    margin-left: 50px;
+
 
 
 
@@ -37,7 +48,10 @@
 .but > button{
     margin-left: 37%;
     margin-top: 10px;
+    justify-content: center;
     
     
 
 }
+
+
