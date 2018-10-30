@@ -134,92 +134,84 @@ class App extends Component {
 
   // sign out the user
   trySignOut() {
-    firebase
-      .auth()
-      .signOut()
-      .then(
-        () => {
-          console.log('Signed Out');
-          this.redirectToHome();
-          this.setState({ user: undefined });
-        },
-        function(error) {
-          console.error('Sign Out Error', error);
-        }
-      );
+    firebase.auth().signOut().then(() => {
+        console.log('Signed Out');
+        this.redirectToHome();
+        this.setState({ user: undefined });
+      },
+      function(error) {
+        console.error('Sign Out Error', error);
+      }
+    );
   }
 
   render() {
-    if (typeof this.state.user === 'undefined') {
+    if (this.state.user === undefined) {
       return (
-        <div className="frontApp">
-          <NavBar />
-          <section className="topSection">
-            <div>
-              <Route
-                exact
-                path="/login"
-                render={() => (
-                  <Login
-                    loggedIn={user => {
-                      this.setState({ user });
-                    }}
-                  />
-                )}
-              />
+        <Router >
+          <div className="frontApp">
+            <NavBar />
+            <section className="topSection">
+              <div>
+                <Route
+                  exact
+                  path="/login"
+                  render={() => (
+                    <Login
+                      loggedIn={user => {
+                        this.setState({ user });
+                      }}
+                    />
+                  )}
+                />
 
-              <Route exact path="/about" component={About} />
-              <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/" component={Home} />
 
-              <Route exact path="/aboutus" component={AboutUs} />
+                <Route exact path="/aboutus" component={AboutUs} />
+              </div>
+            </section>
+
+            <div className="footer">
+              <span> </span>{' '}
+              <a href="mailto:BottleGreen930@gmail.com">
+                BottleGreen930@gmail.com
+              </a>
+              <div> 949-533-1196</div>
+              <div> Terms </div>
+              <div> Policy </div>
             </div>
-          </section>
-
-          <div className="footer">
-            <span> </span>{' '}
-            <a href="mailto:BottleGreen930@gmail.com">
-              BottleGreen930@gmail.com
-            </a>
-            <div> 949-533-1196</div>
-            <div> Terms </div>
-            <div> Policy </div>
           </div>
-        </div>
+        </Router>
       );
     } else {
       return (
-        <div className="wrapper">
-          <NavBarSignedIn trySignOut={this.trySignOut} />
+        <Router >
+          <div className="wrapper">
+            <NavBarSignedIn trySignOut={this.trySignOut} />
 
-          <div className="main">
-            <Route exact path="/history" component={History} />
-            <Route exact path="/about" component={About} />
-            <Route
-              exact
-              path="/"
-              render={() => <UserHome userUid={this.state.user.uid} />}
-            />
-            <Route
-              exact
-              path="/profile"
-              render={this.userProfilePageRedirect}
-            />
-            <Route exact path="/aboutus" component={AboutUs} />
-          </div>
+            <div className="main">
+              <Route exact path="/history" component={History} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/"render={() => <UserHome userUid={this.state.user.uid} />}/>
+              <Route exact path="/profile" render={this.userProfilePageRedirect}/>
+              <Route exact path="/aboutus" component={AboutUs} />
+            </div>
 
-          <div className="footer">
-            <span />{' '}
-            <a href="mailto:BottleGreen930@gmail.com">
-              BottleGreen930@gmail.com
-            </a>
-            <div>949-533-1196</div>
-            <div> Terms </div>
-            <div> Policy </div>
+            <div className="footer">
+              <span />{' '}
+              <a href="mailto:BottleGreen930@gmail.com">
+                BottleGreen930@gmail.com
+              </a>
+              <div>949-533-1196</div>
+              <div> Terms </div>
+              <div> Policy </div>
+            </div>
           </div>
-        </div>
+        </Router>
       );
     }
   }
 }
 
-export default withRouter(App);
+export default App;
